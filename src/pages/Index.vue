@@ -1,9 +1,26 @@
 <template>
-  <q-page class="q-col-gutter-md" padding>
+  <q-page
+    class="q-col-gutter-md"
+    padding
+  >
     <div class="col q-col-gutter-md">
-      <q-select use-chips multiple v-model='sourceSearchList' :options='sourceListOptions' label='Source' style="max-width: 700px" dense outlined use-input @filter="filterFnSources">
+      <q-select
+        use-chips
+        multiple
+        v-model='sourceSearchList'
+        :options='sourceListOptions'
+        label='Source'
+        style="max-width: 700px"
+        dense
+        outlined
+        use-input
+        @filter="filterFnSources"
+      >
         <template v-slot:option="scope">
-          <q-item v-bind="scope.itemProps" dense>
+          <q-item
+            v-bind="scope.itemProps"
+            dense
+          >
             <q-item-section avatar>
               <q-avatar>
                 <q-img :src="'https://raw.githubusercontent.com/GarethChester/recipes-server-251/master/src/assets/source-icons/' + scope.opt.value + '.png'"></q-img>
@@ -15,24 +32,59 @@
           </q-item>
         </template>
       </q-select>
-      <q-input v-model='searchText' label='Search' outlined style="max-width: 700px" dense>
+      <q-input
+        v-model='searchText'
+        label='Search'
+        outlined
+        style="max-width: 700px"
+        dense
+      >
         <template v-slot:prepend>
           <q-icon name="search"></q-icon>
         </template>
       </q-input>
       <q-list>
-        <q-item v-for="item in recipeListFiltered" :key="item.id" style="max-width: 700px">
-          <q-item-section top avatar clickable v-ripple @click="toggleSource(item)" style="cursor:pointer">
+        <q-item
+          v-for="item in recipeListFiltered"
+          :key="item.id"
+          style="max-width: 700px"
+        >
+          <q-item-section
+            top
+            avatar
+            clickable
+            v-ripple
+            @click="toggleSource(item)"
+            style="cursor:pointer"
+          >
             <q-avatar>
               <q-img :src="'https://raw.githubusercontent.com/GarethChester/recipes-server-251/master/src/assets/source-icons/' + item.sourceid + '.png'"></q-img>
             </q-avatar>
           </q-item-section>
-          <q-item-section clickable v-ripple style="cursor:pointer">
+          <q-item-section
+            clickable
+            v-ripple
+            style="cursor:pointer"
+          >
             <q-item-label>{{item.name}}</q-item-label>
-            <q-item-label caption lines="1">{{item.source}} {{item.page ? 'p.' + item.page : ''}}</q-item-label>
+            <q-item-label
+              caption
+              lines="1"
+            >{{item.source}} {{item.page ? 'p.' + item.page : ''}}</q-item-label>
           </q-item-section>
-          <q-item-section top avatar v-if="item.url">
-            <q-btn round color="primary" icon="mdi-link" type="a" :href="item.url" target="_blank"></q-btn>
+          <q-item-section
+            top
+            avatar
+            v-if="item.url"
+          >
+            <q-btn
+              round
+              color="primary"
+              icon="mdi-link"
+              type="a"
+              :href="item.url"
+              target="_blank"
+            ></q-btn>
           </q-item-section>
         </q-item>
       </q-list>
@@ -43,16 +95,19 @@
 <script>
 const sourceList = [
   { label: 'The Guardian', value: 1 },
-  { label: 'Test Book', value: 2 }
+  { label: 'The Last Food Blog', value: 2 },
+  { label: 'Taste.com.au', value: 3 },
+  { label: 'Delish', value: 4 }
 ]
 export default ({
   data () {
     return {
       pageName: 'Recipes',
       recipeList: [
-        { id: 1, name: 'Asparagus Quiche', source: 'Test Book', sourceid: 2, page: 32 },
-        { id: 2, name: 'Chickpea Curry', source: 'The Guardian', sourceid: 1, url: 'https://www.theguardian.com/lifeandstyle/2013/oct/09/jack-monroe-aubergine-chickpea-curry-recipe' },
-        { id: 3, name: 'Salmon Quiche', source: 'Test Book', sourceid: 2, page: 33 }
+        { id: 1, name: 'Aubergine and Chickpea Curry', source: 'The Guardian', sourceid: 1, url: 'https://www.theguardian.com/lifeandstyle/2013/oct/09/jack-monroe-aubergine-chickpea-curry-recipe' },
+        { id: 2, name: 'White Pizza with Spinach & Ricotta', source: 'The Last Food Blog', sourceid: 2, url: 'https://www.thelastfoodblog.com/white-pizza-spinach-ricotta/' },
+        { id: 3, name: 'Thai beef mince cos lettuce cups', source: 'Taste.com.au', sourceid: 3, url: 'https://www.taste.com.au/recipes/thai-beef-mince-cos-lettuce-cups/68134255-f9c9-4d53-994d-7322663b8f2f' },
+        { id: 4, name: 'Mushroom-Fontina Pizza with a Fried Egg', source: 'Delish', sourceid: 4, url: 'https://www.delish.com/cooking/recipe-ideas/recipes/a44636/mushroom-fontina-pizza-recipe/' }
       ],
       searchText: '',
       sourceSearchList: [],
