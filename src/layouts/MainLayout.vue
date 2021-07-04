@@ -3,7 +3,7 @@
 
     <q-header elevated class="bg-primary text-white">
       <q-toolbar>
-        <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
+        <!-- <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" /> -->
 
         <q-toolbar-title>
           <q-avatar icon="mdi-chef-hat"></q-avatar>
@@ -12,7 +12,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" side="left" overlay bordered>
+    <!-- <q-drawer v-model="leftDrawerOpen" side="left" overlay bordered>
       <q-list>
         <q-item clickable v-ripple v-for="item in pageList" :key="item.id" :to="{name: item.route}">
           <q-item-section avatar>
@@ -21,7 +21,7 @@
           <q-item-section>{{item.name}}</q-item-section>
         </q-item>
       </q-list>
-    </q-drawer>
+    </q-drawer> -->
 
     <q-page-container>
       <router-view />
