@@ -2,9 +2,18 @@
 const routes = [
   {
     path: '/',
+    name: 'recipeList',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') }
+    ]
+  },
+  {
+    path: '/sources',
+    name: 'sourceList',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Sources.vue') }
     ]
   },
 
