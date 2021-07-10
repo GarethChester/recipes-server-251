@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "cordova": "^10.0.0",
     "core-js": "^3.6.5",
     "install": "^0.13.0",
     "quasar": "^2.0.0",
