@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
-    "cordova": "^10.0.0",
+    "abort-controller": "^3.0.0",
+    "cordova": "^9.0.0",
     "core-js": "^3.6.5",
+    "faunadb": "^4.3.0",
     "install": "^0.13.0",
     "quasar": "^2.0.0",
     "vue-router": "^4.0.10",

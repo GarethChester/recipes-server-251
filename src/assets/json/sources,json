@@ -1,0 +1,6 @@
+[
+    { label: 'The Guardian', value: 1 },
+    { label: 'The Last Food Blog', value: 2 },
+    { label: 'Taste.com.au', value: 3 },
+    { label: 'Delish', value: 4 }
+]
